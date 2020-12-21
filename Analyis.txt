@@ -1,7 +1,0 @@
-Owner { Id , Name , Avater , Profil }
-
-Protfolioitem { Id , Name , Picture , Description }
-
-
-
-dotnet tool install --global dotnet-ef --version 3.1.8

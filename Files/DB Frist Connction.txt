@@ -1,0 +1,35 @@
+********************************************************
+Scaffold-DbContext "Server = DESKTOP-2MQS1VE ; Database = DatabaseDB ; Trusted_Connection = true ;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+-Force
+*************************************************************
+{
+  "ConnectionStrings": {
+       "SQLConn": "Server = DESKTOP-2MQS1VE; Database = DatabaseDB ; Trusted_Connection = true ;MultipleActiveResultSets=true"
+  }
+}
+*************************************************************
+{
+  "ConnectionStrings": {
+       "SQLConn": "Server = (localdb)\\MSSQLLocalDB; Database = DatabaseDB ; Trusted_Connection = true ;MultipleActiveResultSets=true"
+  }
+}
+**************************************************************************************
+services.AddDbContext<StoreDBContext>(Options =>
+            {
+                Options.UseSqlServer(Configuration.GetConnectionString("SQLConn"));
+            });
+*************************************************************
+
+Get-help about_entityFramework
+
+**************************************************************
+
+public DatabaseDB(DbContextOptions<DatabaseDB> options):base(options)
+{
+}
+
+public DbSet<Employee> employees { get; set; }
+
+**************************************************************
+
+dotnet tool install --global dotnet-ef --version 3.1.8
